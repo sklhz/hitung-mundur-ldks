@@ -1,4 +1,8 @@
 const countdownDate = new Date("2024-09-24T00:00:00").getTime();
+const startDate = new Date("2024-07-24T00:00:00").getTime(); // Hari pertama LDKS
+const oneDay = 1000 * 60 * 60 * 24;
+const oneWeek = 1000 * 60 * 60 * 24 * 7;
+const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 const updateCountdown = () => {
     const now = new Date().getTime();
@@ -18,6 +22,23 @@ const updateCountdown = () => {
         clearInterval(countdownInterval);
         document.getElementById("timer").innerHTML = "Waktu telah berakhir!";
     }
+
+    updateLDKSInfo();
+};
+
+const updateLDKSInfo = () => {
+    const now = new Date();
+    let daysCount = 0;
+    let currentDate = new Date(startDate);
+
+    while (currentDate < now) {
+        if (daysOfWeek[currentDate.getDay()] !== 'Sat' && daysOfWeek[currentDate.getDay()] !== 'Sun') {
+            daysCount++;
+        }
+        currentDate = new Date(currentDate.getTime() + oneDay);
+    }
+
+    document.getElementById("ldks-day").textContent = `Hari ke-${daysCount} LDKS`;
 };
 
 const countdownInterval = setInterval(updateCountdown, 1000);
