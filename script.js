@@ -1,4 +1,4 @@
-const countdownDate = new Date("2024-09-24T00:00:00").getTime();
+const countdownDate = new Date("2024-09-30T00:00:00").getTime();
 const startDate = new Date("2024-07-24T00:00:00").getTime(); // Hari pertama LDKS
 const oneDay = 1000 * 60 * 60 * 24;
 const oneWeek = 1000 * 60 * 60 * 24 * 7;
